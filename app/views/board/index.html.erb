@@ -1,0 +1,42 @@
+<h1>Boards</h1>
+<table class="table" id="t1">
+  <thead>
+    <tr>
+      <th>글번호</th>
+      <th>제목</th>
+      <th>보기</th>
+      <th>수정</th>
+      <th>삭제</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @boards.each do |b| %>
+    <tr class="boards" data-value="<%= b.id %>">
+      <td><%= b.id %></td>
+      <td><%= b.title %></td>
+      <td><a href="/boards/<%= b.id %>">보기</a></td>
+      <td><a href="/boards/<%= b.id %>/edit">수정</a></td>
+      <td><a href="/boards/<%= b.id %>" data-method="delete" data-confirm="삭제할꼬얌?">삭제</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<a href="/boards/new">새글쓰기</a>
+
+<script>
+window.onload = function() {
+  alert("done1");
+  console.log(document.getElementsByTagName("table"));
+  var boards = document.getElementsByClassName("boards");
+  for(var i = 0; i < boards.length; i++) {
+    boards[i].addEventListener('click', function() {
+      var id = this.getAttribute('data-value');
+      console.log(id);
+      location.href = "/boards/" + id;
+    }, false);
+  }
+}
+
+alert("done2");
+
+</script>

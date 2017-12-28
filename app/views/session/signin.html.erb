@@ -1,0 +1,8 @@
+<h1>로그인</h1>
+<form action="/user_signin" method="post">
+  ID: <input type="email" name="email"><br>
+  PW: <input type="password" name="password"><br>
+  <input type="submit" value="로그인">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+</form>
+<a href="/signup">회원가입</a>

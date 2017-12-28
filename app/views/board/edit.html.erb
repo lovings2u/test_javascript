@@ -1,0 +1,6 @@
+<form action="/boards/<%= @board.id %>" method='post'>
+  <input type="text" name='title' value="<%= @board.title %>"><br />
+  <textarea name="contents" cols="30" rows="10"><%= @board.contents %></textarea><br>
+  <input type="submit" value="수정하기">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+</form>
